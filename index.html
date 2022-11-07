@@ -1,49 +1,65 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
         <title>Hyunmin's Log</title>
+        <link rel="stylesheet" href="style.css">
+        <style>
+    .container {
+        width: 640px;
+    }
+    </style>
     </head>
     <body>
-        <h1>Hyunmin's Log</h1>
-        <img src = "face.jpg", width="300">
-        <p>
-        안녕하세요 저는 성균관대학교 소프트웨어학과 21학번 이현민 이라고 합니다</strong>.
-        </p>
+        <div class="p-3 mb-2 bg-light text-dark"><h1>Hyunmin's Log</h1></div>
+        
+        <div id = "top">
+        <div class="shadow-lg p-3 mb-5 bg-body rounded">
+            <img src = "photo.png", width="200">
+        </div>
+        <h2>Personal Information</h2>
+        <p>이름 : <strong>이현민</strong></p>
+        <p>나이 : <strong>21살</strong></p>
+        <p>학력 : <strong>성균관대학교 소프트웨어학과</strong></p>
+        <p>관심분야 : <strong>NLP</strong></p>
         <h2>History</h2>
         <ul>     
             <li><a href="http://www.hanilgo.cnehs.kr/main.do">한일고등학교</a> 32기 졸(2018.03 ~ 2021.02)</li>
             <li>성균관대학교 소프트웨어학과 재학중(2021.03 ~)</li>
             <ul>
                 <li>성균관대학교 소프트웨어학과 알리미(2021 1학기 ~ 2022 1학기)</li>
-                <p>-수험생들에게 소프트웨어학과란 어떤 곳인지 알리는 역할을 진행</p>
-                <p>-모교투어, 전국투어, 전공체험 행사 등을 진행함</p>
+                <p class="lh-sm">-수험생들에게 소프트웨어학과란 어떤 곳인지 알리는 역할을 진행</p>
+                <p class="lh-1">-모교투어, 전국투어, 전공체험 행사 등을 진행함</p>
             </ul>
             <li>자율주행 자동차 동아리 SCAR(2021.03 ~)</li>
-            <li>메디아이플러스 산학협력 프로젝트 진행중(2022 ~ 2023)</li>
-            <p><a href="https://github.com/2022MediAISH">Github Link</a></p>
+            <li>메디아이플러스 산학협력 프로젝트 진행중(2022 ~ 2023)<a href="https://github.com/2022MediAISH">[Github Link]</a></li>
+            <li>래식 산학협력 프로젝트 진행중(2022 2학기)<span class="badge bg-secondary">New!!</span></li>
         </ul>
         <h2>Contact</h2>
         <ul>
             <li>Email: lhm6199@gmail.com</li>
             <li><a href="https://github.com/lhm6199">Github</a></li>
             <li><a href="https://flame-reason-b76.notion.site/Hyunmin-s-log-848193a2e9994eef8f55692fc6514714">Notion</a></li>
+            <li><a href="https://www.instagram.com/h_mini_lee/">Instagram</a></li>
 
         </ul>
-        <h2>요일별 듣는 수업</h2>
+        <h2>Schedule</h2>
         <table>
             <tr><th></th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th></tr>
             <tr><th>1.</th><td>성균논어(11:00 ~ 12:50)</td><td>산학 모임(14:00 ~ 15:00)</td><td>컴퓨터구조개론(12:00 ~ 13:15)</td><td>사랑의 심리(9:00 ~ 11:45)</td><td></td></tr>
             <tr><th>2.</th><td>컴퓨터구조 개론(13:30 ~ 14:45)</td><td>과학영어(15:00 ~ 16:50)</td><td>산학협력 프로젝트(16:30 ~ 17:30)</td><td></td><td></td></tr>
             <tr><th>3.</th><td>시스템 프로그래밍 실습(18:00 ~ 21:45)</td><td>오픈소스소프트웨어실습(18:00 ~ 21:45)</td><td></td><td></td><td></td></tr>
 
-
-
-
         </table>
-        <h3>Todos</h3>
-        <ol>
-            <li>Finish a project</li>
-            <li>Get a haircut</li>
-        </ol>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+              <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+          </nav>     
+    </div>
     </body>
 </html>
