@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Efficient Execution of Large Language Models | Hyunmin Lee</title>
+    <meta name="description" content="A research note on efficient execution of large language models.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        (function () {
+            var savedTheme = null;
+            try {
+                savedTheme = localStorage.getItem("theme");
+            } catch (error) {
+                savedTheme = null;
+            }
+            var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+            document.documentElement.dataset.theme = savedTheme || (prefersDark ? "dark" : "light");
+        }());
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <nav class="nav" aria-label="Primary navigation">
+            <a class="brand" href="index.html">Hyunmin Lee</a>
+            <div class="nav-actions">
+                <ul class="nav-links">
+                    <li><a href="index.html">about</a></li>
+                    <li><a href="index.html#news">news</a></li>
+                    <li><a href="index.html#education">education</a></li>
+                    <li><a href="index.html#experience">experience</a></li>
+                    <li><a href="index.html#honors">honors</a></li>
+                    <li><a href="index.html#publications">publications</a></li>
+                </ul>
+                <button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">dark</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="page">
+        <article class="article">
+            <header class="article-header">
+                <p class="post-meta">LLM Base · Oct 15, 2023 · 5 min read</p>
+                <h1>Efficient Execution of Large Language Models</h1>
+            </header>
+
+            <div class="article-content">
+                <p><strong>Note:</strong> This is a sample note demonstrating the layout.</p>
+
+                <p>
+                    Large Language Models have enabled many new applications, but their size creates
+                    substantial compute and memory pressure. Efficient deployment requires attention to
+                    both software scheduling and hardware-aware model design.
+                </p>
+
+                <h2>The Memory Wall</h2>
+                <p>
+                    The primary bottleneck in serving LLMs is often memory bandwidth. Large models need
+                    many gigabytes of parameters, and token generation repeatedly moves weights and KV
+                    cache data through the memory hierarchy.
+                </p>
+                <ul>
+                    <li><strong>KV cache:</strong> Attention state grows with sequence length and concurrent users.</li>
+                    <li><strong>Batching:</strong> Larger batches improve throughput, but they increase memory demand.</li>
+                </ul>
+
+                <h2>Software Optimizations</h2>
+                <p>
+                    Systems such as paged attention and continuous batching improve utilization by reducing
+                    fragmentation and keeping the accelerator busy as requests arrive and finish.
+                </p>
+
+                <h3>PagedAttention</h3>
+                <p>
+                    PagedAttention partitions KV cache storage into fixed-size blocks, making memory
+                    management more flexible during generation.
+                </p>
+
+                <h3>Continuous Batching</h3>
+                <p>
+                    Continuous batching schedules new requests at iteration boundaries instead of waiting for
+                    an entire static batch to finish.
+                </p>
+
+                <h2>Hardware and Software Co-design</h2>
+                <p>
+                    Pushing inference efficiency further requires model compression, custom kernels,
+                    quantization, and architecture choices that respect real hardware constraints.
+                </p>
+            </div>
+        </article>
+    </main>
+
+    <footer class="site-footer">
+        <p>© 2026 Hyunmin Lee. Powered by GitHub Pages.</p>
+    </footer>
+    <script>
+        (function () {
+            var toggle = document.querySelector(".theme-toggle");
+            var savedTheme = null;
+            try {
+                savedTheme = localStorage.getItem("theme");
+            } catch (error) {
+                savedTheme = null;
+            }
+            var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+            var theme = savedTheme || (prefersDark ? "dark" : "light");
+
+            function applyTheme(nextTheme) {
+                document.documentElement.dataset.theme = nextTheme;
+                toggle.textContent = nextTheme === "dark" ? "light" : "dark";
+                toggle.setAttribute("aria-pressed", nextTheme === "dark");
+                toggle.setAttribute("aria-label", nextTheme === "dark" ? "Switch to light mode" : "Switch to dark mode");
+            }
+
+            applyTheme(theme);
+            toggle.addEventListener("click", function () {
+                var nextTheme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+                try {
+                    localStorage.setItem("theme", nextTheme);
+                } catch (error) {
+                    savedTheme = null;
+                }
+                applyTheme(nextTheme);
+            });
+        }());
+    </script>
+</body>
+
+</html>
